@@ -1,0 +1,4 @@
+Resources:
+  EC2I1C1S5:
+    Type: 'AWS::EC2::Instance'
+    Properties: {}
