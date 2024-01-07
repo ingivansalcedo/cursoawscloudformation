@@ -10,3 +10,4 @@ Resources:
     Type: 'AWS::EC2::Instance'
     Properties: 
       ImageId: "ami-0c7217cdde317cfec"
+      dhdhdh
