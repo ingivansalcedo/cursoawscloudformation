@@ -6,8 +6,13 @@ Description: >
   que necesita
 
 Resources:
+  NewKeyPair:
+    Type: 'AWS::EC2::KeyPair'
+    Properties:
+      KeyName: keypair-pruebas-cf
+
   WebServer:
     Type: 'AWS::EC2::Instance'
     Properties: 
       ImageId: "ami-0c7217cdde317cfec"
-      dhdhdh
+      KeyName: !Ref keypair-pruebas-cf
