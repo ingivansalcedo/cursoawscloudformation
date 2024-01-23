@@ -29,6 +29,6 @@ Resources:
     Properties: 
       ImageId: "ami-0c7217cdde317cfec"
       InstanceType: "t2.micro"
-      KeyName: "practicacloudformation"
+      KeyName: "practicacloudformation3"
       SecurityGroupIds:
         - Ref: "SecurityGroupSSH"
