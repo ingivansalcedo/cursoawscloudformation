@@ -6,12 +6,6 @@ Description: >
   que necesita
 
 Resources:
-  NewKeyPair:
-    Type: AWS::EC2::KeyPair
-    Properties:
-      KeyFormat: "pem"
-      KeyName: "keypair-pruebas-cf"
-      KeyType: "ed25519"
   
   SecurityGroupSSH:
     Type: AWS::EC2::SecurityGroup
@@ -35,6 +29,6 @@ Resources:
     Properties: 
       ImageId: "ami-0c7217cdde317cfec"
       InstanceType: "t2.micro"
-      KeyName: !Ref "NewKeyPair"
+      KeyName: "practicacloudformation"
       SecurityGroupIds:
         - Ref: "SecurityGroupSSH"
