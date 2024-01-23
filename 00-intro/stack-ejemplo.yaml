@@ -13,29 +13,22 @@ Resources:
       KeyName: "keypair-pruebas-cf"
       KeyType: "ed25519"
   
-  myVPC:
-  Type: AWS::EC2::VPC
-  Properties:
-    CidrBlock: 10.0.0.0/16
-    EnableDnsSupport: 'true'
-    EnableDnsHostnames: 'true'
-
   SecurityGroupSSH:
-  Type: AWS::EC2::SecurityGroup
-  Properties:
-    GroupDescription: "Permite el acceso al puerto 22"
-    GroupName: "SSHSecurityGroup"
-    VpcId: !Ref myVPC
-    SecurityGroupIngress:
-      - IpProtocol: tcp
-        FromPort: 22
-        ToPort: 22
-        CidrIp: 0.0.0.0/0
-    SecurityGroupEgress:
-      - IpProtocol: tcp
-        FromPort: 22
-        ToPort: 22
-        CidrIp: 0.0.0.0/o
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: "Permite el acceso al puerto 22"
+      GroupName: "SSHSecurityGroup"
+      VpcId: "vpc-0f7a5d7c9505d586c"
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+      SecurityGroupEgress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
 
   WebServer:
     Type: 'AWS::EC2::Instance'
@@ -43,4 +36,5 @@ Resources:
       ImageId: "ami-0c7217cdde317cfec"
       InstanceType: "t2.micro"
       KeyName: !Ref "NewKeyPair"
-  
+      SecurityGroupIds:
+        - Ref: "SecurityGroupSSH"
